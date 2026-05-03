@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Front Porch Farm &amp; Garden — Goochland, Virginia</title>
+<meta name="description" content="A nine-acre regenerative farm in Goochland, Virginia. Organic vegetables, fruits, herbs, cut flowers, native plants, and pasture-raised heritage chickens. No sprays, ever." />
+<meta property="og:title" content="Front Porch Farm & Garden" />
+<meta property="og:description" content="Grown from seed. Raised on pasture. Rooted in Goochland." />
+<meta property="og:image" content="assets/images/IMG_0568.jpg" />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/jpeg" href="assets/images/logo.jpg" />
+<link rel="apple-touch-icon" href="assets/images/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream:        #F0EDE6;
+  --warm-white:   #FAFAF8;
+  --ink:          #1A1A1A;
+  --forest:       #4A5D4E;
+  --forest-deep:  #3a4a3e;
+  --rule-soft:    rgba(26, 26, 26, 0.14);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+html, body { overflow-x: clip; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Lato', system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  image-orientation: from-image;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+::selection { background: var(--forest); color: var(--cream); }
+
+/* — typography helpers — */
+.serif {
+  font-family: 'Playfair Display', "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.eyebrow {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.72;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  display: inline-block;
+}
+
+/* — layout — */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (min-width: 700px)  { .container { padding: 0 40px; } }
+@media (min-width: 1100px) { .container { padding: 0 56px; } }
+
+section { scroll-margin-top: 96px; }
+
+/* ─── NAV ─────────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--cream);
+  border-bottom: 1px solid var(--ink);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+  padding: 0 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 16px;
+}
+@media (min-width: 700px) { .nav-inner { padding: 0 40px; } }
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+  min-height: 44px;
+}
+.nav-logo img {
+  height: 56px;
+  width: auto;
+  mix-blend-mode: multiply;
+}
+
+.nav-links {
+  display: none;
+  gap: 36px;
+  align-items: center;
+}
+@media (min-width: 768px) { .nav-links { display: flex; } }
+.nav-links a {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 10px 0;
+  position: relative;
+  transition: color .25s ease;
+}
+.nav-links a:hover { color: var(--forest); }
+
+/* hamburger */
+.nav-burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  position: relative;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) { .nav-burger { display: none; } }
+.nav-burger span,
+.nav-burger span::before,
+.nav-burger span::after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: var(--ink);
+}
+.nav-burger span { position: relative; }
+.nav-burger span::before { position: absolute; left: 0; top: -6px; }
+.nav-burger span::after  { position: absolute; left: 0; top:  6px; }
+.nav-burger[aria-expanded="true"] span { background: transparent; }
+.nav-burger[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+.nav-burger[aria-expanded="true"] span::after  { top: 0; transform: rotate(-45deg); }
+
+.nav-drawer {
+  position: fixed;
+  top: 76px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--cream);
+  z-index: 49;
+  display: none;
+  flex-direction: column;
+  padding: 32px 28px 48px;
+  border-top: 1px solid var(--ink);
+  overflow-y: auto;
+}
+.nav-drawer.open { display: flex; }
+.nav-drawer a {
+  display: block;
+  padding: 22px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 500;
+  border-bottom: 1px solid var(--rule-soft);
+  letter-spacing: -0.01em;
+}
+
+/* ─── HERO ────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  color: var(--cream);
+  background:
+    linear-gradient(180deg, rgba(20,18,14,0.45) 0%, rgba(20,18,14,0.20) 35%, rgba(20,18,14,0.55) 75%, rgba(20,18,14,0.78) 100%),
+    url('assets/images/IMG_0568.jpg') center/cover no-repeat;
+}
+.hero-inner {
+  width: 100%;
+  padding: 64px 0 88px;
+}
+@media (min-width: 700px) { .hero-inner { padding: 96px 0 112px; } }
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: clamp(38px, 7.4vw, 96px);
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  max-width: 18ch;
+  margin-top: 22px;
+  color: var(--cream);
+}
+.hero p.lede {
+  font-size: clamp(15px, 1.25vw, 17.5px);
+  max-width: 48ch;
+  margin-top: 26px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(240, 237, 230, 0.92);
+}
+.hero .eyebrow { color: rgba(240, 237, 230, 0.85); }
+.hero .eyebrow::before { background: rgba(240, 237, 230, 0.85); }
+
+/* ─── BUTTON ──────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 17px 28px 16px;
+  background: var(--forest);
+  color: var(--cream);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 400;
+  border: 1px solid var(--forest);
+  margin-top: 36px;
+  min-height: 48px;
+  transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+}
+.btn:hover {
+  background: var(--cream);
+  color: var(--ink);
+  border-color: var(--cream);
+}
+.btn .arrow {
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  transition: transform .25s ease;
+}
+.btn:hover .arrow { transform: translateX(5px); }
+
+/* ─── PHILOSOPHY ──────────────────────────────── */
+.philosophy {
+  background: var(--cream);
+  padding: 96px 0;
+}
+@media (min-width: 900px) { .philosophy { padding: 144px 0; } }
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .philosophy-grid {
+    grid-template-columns: 5fr 7fr;
+    gap: 88px;
+  }
+}
+
+.philosophy-img-wrap { border: 1px solid var(--ink); }
+.philosophy-img-wrap img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.philosophy-text { padding-top: 4px; }
+
+.philosophy h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: clamp(32px, 4.6vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-top: 20px;
+  max-width: 16ch;
+}
+
+.philosophy .body {
+  margin-top: 36px;
+  font-size: 17px;
+  line-height: 1.78;
+  font-weight: 300;
+  max-width: 56ch;
+}
+.philosophy .body p { margin-bottom: 22px; }
+.philosophy .body p:last-child { margin-bottom: 0; }
+
+.philosophy .body p.drop::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.6em;
+  float: left;
+  line-height: 0.84;
+  margin: 0.06em 0.10em -0.05em 0;
+  color: var(--forest);
+  font-weight: 500;
+}
+
+.philosophy ul.values {
+  list-style: none;
+  margin-top: 44px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule-soft);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px 32px;
+  max-width: 60ch;
+}
+@media (min-width: 600px) { .philosophy ul.values { grid-template-columns: 1fr 1fr; } }
+
+.philosophy ul.values li {
+  font-size: 14.5px;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.5;
+}
+.philosophy ul.values li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 14px;
+  height: 1px;
+  background: var(--forest);
+}
+
+/* ─── WHAT WE GROW ────────────────────────────── */
+.grow {
+  background: var(--cream);
+  padding: 96px 0;
+  border-top: 1px solid var(--rule-soft);
+}
+@media (min-width: 900px) { .grow { padding: 144px 0; } }
+
+.section-head {
+  max-width: 60ch;
+  margin-bottom: 56px;
+}
+@media (min-width: 900px) { .section-head { margin-bottom: 72px; } }
+
+.section-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: clamp(32px, 4.6vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-top: 18px;
+  max-width: 18ch;
+}
+.section-head p {
+  margin-top: 22px;
+  font-size: 16.5px;
+  max-width: 50ch;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 640px)  { .cards { grid-template-columns: 1fr 1fr; gap: 24px; } }
+@media (min-width: 1024px) { .cards { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
+
+.card {
+  background: var(--warm-white);
+  border: 1px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  transition: transform .35s ease;
+}
+.card:hover { transform: translateY(-3px); }
+
+.card-img {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-bottom: 1px solid var(--ink);
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s ease;
+}
+.card:hover .card-img img { transform: scale(1.05); }
+
+.card-body {
+  padding: 26px 22px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card .marker {
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: var(--forest);
+  margin-bottom: 14px;
+}
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.18;
+  letter-spacing: -0.012em;
+}
+.card p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-top: 14px;
+  color: rgba(26, 26, 26, 0.86);
+}
+
+/* ─── FROM THE FARM ───────────────────────────── */
+.farm {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 96px 0;
+}
+@media (min-width: 900px) { .farm { padding: 144px 0; } }
+
+.farm .section-head h2 { color: var(--cream); }
+.farm .section-head p  { color: rgba(240, 237, 230, 0.7); }
+.farm .eyebrow { color: rgba(240, 237, 230, 0.7); }
+.farm .eyebrow::before { background: currentColor; }
+
+.farm-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 640px)  { .farm-grid { grid-template-columns: 1fr 1fr; gap: 18px; } }
+@media (min-width: 1024px) { .farm-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+
+.farm-grid figure {
+  margin: 0;
+  overflow: hidden;
+  background: #0e0e0e;
+}
+.farm-grid figure img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 1.4s ease;
+}
+.farm-grid figure:hover img { transform: scale(1.04); }
+
+/* ─── FIND US ─────────────────────────────────── */
+.find {
+  background: var(--cream);
+  padding: 96px 0;
+}
+@media (min-width: 900px) { .find { padding: 144px 0; } }
+
+.find-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .find-grid {
+    grid-template-columns: 5fr 7fr;
+    gap: 96px;
+  }
+}
+
+.find h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: clamp(32px, 4.6vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-top: 18px;
+  max-width: 14ch;
+}
+.find .lede {
+  margin-top: 28px;
+  font-size: 16.5px;
+  line-height: 1.78;
+  font-weight: 300;
+  max-width: 50ch;
+}
+
+.contact-card {
+  border: 1px solid var(--ink);
+  background: var(--warm-white);
+  padding: 36px 28px;
+  display: grid;
+  gap: 28px;
+}
+@media (min-width: 700px) { .contact-card { padding: 44px 40px; } }
+
+.contact-card .row {
+  display: grid;
+  gap: 6px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.contact-card .row:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.contact-card .label {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 400;
+  opacity: 0.72;
+}
+.contact-card .value {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  word-break: break-word;
+}
+.contact-card .value.placeholder {
+  color: var(--forest);
+  font-style: italic;
+  font-size: 17px;
+  font-weight: 400;
+}
+.contact-card .note {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(26, 26, 26, 0.7);
+  margin-top: 4px;
+}
+
+/* ─── FOOTER ──────────────────────────────────── */
+.footer {
+  background: var(--cream);
+  border-top: 1px solid var(--ink);
+  padding: 72px 0 48px;
+  text-align: center;
+}
+.footer-logo {
+  height: 76px;
+  width: auto;
+  margin: 0 auto;
+  mix-blend-mode: multiply;
+}
+.footer .tag {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 19px;
+  margin-top: 16px;
+  color: var(--ink);
+  letter-spacing: 0.005em;
+}
+.footer-links {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  margin-top: 36px;
+  padding-top: 36px;
+  border-top: 1px solid var(--rule-soft);
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  padding: 10px 0;
+  transition: color .25s ease;
+}
+.footer-links a:hover { color: var(--forest); }
+.footer .meta {
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  opacity: 0.55;
+  margin-top: 28px;
+}
+
+/* — small focus polish — */
+:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 3px;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--cream);
+  outline-offset: 3px;
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Front Porch Farm and Garden — home">
+      <img src="assets/images/logo.jpg" alt="" />
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#philosophy">About</a>
+      <a href="#grow">What We Grow</a>
+      <a href="#find">Find Us</a>
+    </nav>
+
+    <button class="nav-burger" id="burger" type="button" aria-controls="drawer" aria-expanded="false" aria-label="Open menu">
+      <span></span>
+    </button>
+  </div>
+
+  <div class="nav-drawer" id="drawer" aria-label="Mobile menu">
+    <a href="#philosophy">About</a>
+    <a href="#grow">What We Grow</a>
+    <a href="#farm">From the Farm</a>
+    <a href="#find">Find Us</a>
+  </div>
+</header>
+
+<!-- ─── HERO ─────────────────────────────────── -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <span class="eyebrow">Front Porch Farm &amp; Garden · Goochland, Virginia</span>
+    <h1>Grown from seed.<br/>Raised on pasture.<br/>Rooted in Goochland.</h1>
+    <p class="lede">Nine acres of regenerative farming in central Virginia — vegetables, fruits, herbs, cut flowers, native plants, and heritage breed chickens. Tended by hand, never sprayed.</p>
+    <a href="#philosophy" class="btn">Learn more <span class="arrow" aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- ─── PHILOSOPHY ───────────────────────────── -->
+<section class="philosophy" id="philosophy">
+  <div class="container">
+    <div class="philosophy-grid">
+      <div class="philosophy-img-wrap">
+        <img src="assets/images/IMG_7250.jpg" alt="A field of feverfew in bloom on the farm" loading="lazy" />
+      </div>
+      <div class="philosophy-text">
+        <span class="eyebrow">Our Philosophy</span>
+        <h2>A small farm with a long view.</h2>
+        <div class="body">
+          <p class="drop">We don't spray anything. Not fungicides, not herbicides, not pesticides, not insecticides. We'd rather lose a crop than put something into the soil, the air, or our food that could harm a pollinator, a neighbor, or the people who eat what we grow.</p>
+          <p>Everything starts from seed in our greenhouse. Beds are turned by hand with a broadfork — minimal till, maximum life under the surface. We cover crop through the off-season, feed our soil with OMRI-approved organic compost, and rotate our birds across pasture so the land we steward gets healthier every year.</p>
+          <p>It's slower this way. It's harder. We think it's worth it.</p>
+        </div>
+
+        <ul class="values">
+          <li>No sprays of any kind</li>
+          <li>Minimal till with a broadfork</li>
+          <li>Cover cropped year-round</li>
+          <li>Started from seed, in-house</li>
+          <li>OMRI-certified organic inputs</li>
+          <li>Rotationally grazed pasture</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT WE GROW ─────────────────────────── -->
+<section class="grow" id="grow">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What We Grow &amp; Raise</span>
+      <h2>Field, pasture, and greenhouse.</h2>
+      <p>A diversified mix of edible, medicinal, and ornamental crops — alongside heritage breed laying hens raised the way they were meant to live.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card-img">
+          <img src="assets/images/IMG_2495.jpg" alt="Heirloom watermelons grown in the field" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <span class="marker" aria-hidden="true"></span>
+          <h3>Vegetables, Fruits &amp; Herbs</h3>
+          <p>Organic produce and culinary herbs grown from seed, hand-tended, and never sprayed. Plus a growing list of medicinal herbs — yarrow, echinacea, calendula, chamomile, milk thistle.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img">
+          <img src="assets/images/IMG_7594.jpg" alt="Coneflowers in bloom with a bumblebee on a blossom" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <span class="marker" aria-hidden="true"></span>
+          <h3>Flowers &amp; Native Plants</h3>
+          <p>Cut flowers for the table and Virginia natives planted to feed pollinators and rebuild habitat. Coneflowers, yarrow, feverfew, calendula — beauty with a job to do.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img">
+          <img src="assets/images/IMG_6870.jpg" alt="Heritage breed chickens grazing on green pasture" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <span class="marker" aria-hidden="true"></span>
+          <h3>Pasture-Raised Chickens</h3>
+          <p>Heritage breed laying hens rotated daily through fresh pasture in our chicken tractor. Organic, corn- and soy-free feed. Eating eggs, hatching eggs, and baby chicks available in season.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img">
+          <img src="assets/images/IMG_9062.jpg" alt="Tending plants inside the farm greenhouse" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <span class="marker" aria-hidden="true"></span>
+          <h3>Coming Soon</h3>
+          <p>Sheep and goats joining the rotation, meat chickens going on pasture, and shiitake and oyster mushrooms in the woods. The farm grows a little more every year.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FROM THE FARM ────────────────────────── -->
+<section class="farm" id="farm">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">From the Farm</span>
+      <h2>A season in pictures.</h2>
+      <p>Selected harvests, blossoms, and quiet mornings from a working year on nine acres in Goochland.</p>
+    </div>
+
+    <div class="farm-grid">
+      <figure><img src="assets/images/IMG_7633.jpg" alt="A basket of cut flowers and herbs harvested at the farm" loading="lazy" /></figure>
+      <figure><img src="assets/images/IMG_8155.jpg" alt="Calendula blossoms harvested into a wood basket" loading="lazy" /></figure>
+      <figure><img src="assets/images/IMG_8137.jpg" alt="Red clover blossoms collected in a willow basket" loading="lazy" /></figure>
+      <figure><img src="assets/images/IMG_1546.jpg" alt="Yellow-fleshed heirloom watermelons sliced open" loading="lazy" /></figure>
+      <figure><img src="assets/images/IMG_5776.jpg" alt="Cantaloupe melons in the field" loading="lazy" /></figure>
+      <figure><img src="assets/images/IMG_7429.jpg" alt="Yarrow flowers in close detail" loading="lazy" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FIND US ──────────────────────────────── -->
+<section class="find" id="find">
+  <div class="container">
+    <div class="find-grid">
+      <div>
+        <span class="eyebrow">Find Us</span>
+        <h2>Stop by, or stay in touch.</h2>
+        <p class="lede">Front Porch Farm &amp; Garden is a small operation. What's available shifts with the season — eggs and produce one week, cut flowers or chicks the next. Reach out and we'll tell you what's at the farm.</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="row">
+          <span class="label">Location</span>
+          <span class="value">Goochland, Virginia</span>
+        </div>
+        <div class="row">
+          <span class="label">Email</span>
+          <span class="value placeholder">[ Contact email — to be added before launch ]</span>
+        </div>
+        <div class="row">
+          <span class="label">Availability</span>
+          <span class="value">Seasonal · by inquiry</span>
+          <span class="note">Eggs, produce, cut flowers, hatching eggs, and baby chicks rotate through the season. Get in touch for what's at the farm right now.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <img class="footer-logo" src="assets/images/logo.jpg" alt="Front Porch Farm and Garden" />
+    <div class="tag">Grown from seed. Raised on pasture.</div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#philosophy">About</a>
+      <a href="#grow">What We Grow</a>
+      <a href="#farm">From the Farm</a>
+      <a href="#find">Find Us</a>
+    </nav>
+    <div class="meta">© 2026 Front Porch Farm &amp; Garden · Goochland, Virginia</div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var burger = document.getElementById('burger');
+    var drawer = document.getElementById('drawer');
+    if (!burger || !drawer) return;
+
+    function setOpen(open) {
+      drawer.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    burger.addEventListener('click', function () {
+      setOpen(!drawer.classList.contains('open'));
+    });
+
+    drawer.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+
+    var mql = window.matchMedia('(min-width: 768px)');
+    mql.addEventListener('change', function (e) {
+      if (e.matches) setOpen(false);
+    });
+  })();
+</script>
+
+</body>
+</html>
