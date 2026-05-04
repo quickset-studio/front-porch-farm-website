@@ -211,13 +211,29 @@ section { scroll-margin-top: 96px; }
   align-items: center;
   background: var(--cream);
   color: var(--ink);
+  overflow: hidden;
 }
 .hero-inner {
   width: 100%;
   padding: 80px 0 96px;
   text-align: left;
+  position: relative;
+  z-index: 1;
 }
 @media (min-width: 700px) { .hero-inner { padding: 112px 0 128px; } }
+
+.hero-sprig {
+  display: none;
+  position: absolute;
+  right: clamp(28px, 5vw, 72px);
+  bottom: clamp(40px, 6vh, 96px);
+  width: clamp(80px, 7vw, 110px);
+  height: auto;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (min-width: 900px) { .hero-sprig { display: block; } }
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
@@ -652,11 +668,25 @@ section { scroll-margin-top: 96px; }
 <!-- ─── HERO ─────────────────────────────────── -->
 <section class="hero" id="top">
   <div class="container hero-inner">
-    <span class="eyebrow">Front Porch Farm &amp; Garden · Goochland, Virginia</span>
+    <span class="eyebrow">9 acres · Goochland, Virginia · Regeneratively grown</span>
     <h1>Grown from seed.<br/>Raised on pasture.<br/>Rooted in Goochland.</h1>
     <p class="lede">Nine acres of regenerative farming in central Virginia — vegetables, fruits, herbs, cut flowers, native plants, and heritage breed chickens. Tended by hand, never sprayed.</p>
     <a href="#philosophy" class="btn">Learn more <span class="arrow" aria-hidden="true">→</span></a>
   </div>
+
+  <svg class="hero-sprig" viewBox="0 0 70 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="#1A1A1A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+      <path d="M35 118 C 36 96, 34 76, 35 56 C 36 36, 34 18, 35 4" />
+      <path d="M35 90 C 48 88, 56 81, 58 70" />
+      <path d="M35 90 C 44 82, 52 75, 58 70" />
+      <path d="M35 66 C 22 64, 14 57, 12 46" />
+      <path d="M35 66 C 26 58, 18 51, 12 46" />
+      <path d="M35 42 C 48 40, 56 33, 58 22" />
+      <path d="M35 42 C 44 34, 52 27, 58 22" />
+      <path d="M35 4 C 32 8, 30 11, 31 16" />
+      <path d="M35 4 C 38 8, 40 11, 39 16" />
+    </g>
+  </svg>
 </section>
 
 <!-- ─── PHILOSOPHY ───────────────────────────── -->
